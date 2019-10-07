@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Panels 💪🌄</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <style>
+      html {
+        box-sizing: border-box;
+        background: #ffc600;
+        font-family: "helvetica neue";
+        font-size: 20px;
+        font-weight: 200;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .panels {
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+      }
+
+      .panel {
+        background: #6b0f9c;
+        box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+        color: white;
+        text-align: center;
+        align-items: center;
+        /* Safari transitionend event.propertyName === flex */
+        /* Chrome + FF transitionend event.propertyName === flex-grow */
+        transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+          flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+        font-size: 20px;
+        background-size: cover;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        /* This is to distribute the panels evenly */
+        flex: 1;
+      }
+
+      .panel1 {
+        background-image: url(https://gmsrp.cachefly.net/images/18/03/24/d181436916fe8ca7c22def686501d5e2/960.jpg);
+      }
+
+      .panel2 {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/cd/Bill_Nye_2017.jpg);
+      }
+
+      .panel3 {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/b6/Queen_Elizabeth_II_in_March_2015.jpg);
+      }
+
+      /* .panel4 {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG);
+      } */
+
+      .panel5 {
+        background-image: url(http://s3.amazonaws.com/quietus_production/images/articles/26699/the_beatles_1561392384_crop_550x369.jpg);
+      }
+
+      /* Flex Children (all P inside of panel)*/
+      .panel > * {
+        margin: 0;
+        width: 100%;
+        transition: transform 0.5s;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .panel p {
+        text-transform: uppercase;
+        font-family: "Amatic SC", cursive;
+        /* text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45); */
+        /* font-size: 2em; */
+        /* color: #797979; */
+        z-index: 5;
+      }
+
+      /* To target the the second paragraph element of each panel */
+      .panel p:nth-child(2) {
+        font-size: 4em;
+      }
+
+      /* This is to target the the first and last paragraph element and move them in and out of the screen */
+      .panel > *:first-child {
+        transform: translateY(-100%);
+      }
+      .panel.open-active > *:first-child {
+        transform: translateY(0);
+      }
+      .panel > *:last-child {
+        transform: translateY(100%);
+      }
+      .panel.open-active > *:last-child {
+        transform: translateY(0);
+      }
+
+      .panel.open {
+        /* The panel with class of open is supposed to take five times the amount of space */
+        font-size: 40px;
+        flex: 5;
+        /* height: 750px; */
+      }
+    </style>
+
+    <div class="panels">
+      <div class="panel panel1">
+        <p>Años – treinta y cuatro años</p>
+
+        <p>Lebrón James</p>
+        <p>
+          Lebrón James es un jugador de baloncesto. Él es muy alto y frote.
+          Juega para Los Ángeles Lakers. Vive en California en los Estados
+          Unidos. El viaja el mundo para jugar baloncesto para la selección
+          nacional. Gana dos medallas de oro de los juegos olímpicos. En el NBA
+          gana tres campeonatos y cuatro MVPs. Gana un campeonato en Cleveland,
+          y dos en Miami. El es de Cleveland y el campeonato esta muy importante
+          para la ciudad. Cleveland tiene una fiesta para celebrar. Él vale
+          cuatrocientos cincuenta millones dólares. Cuando él juega el
+          basquetbol, viste una camiseta amorillo y morado. ¿Su pregunta es
+          “Quién es el mejor jugador de baloncesto en el mundo?”
+        </p>
+      </div>
+      <div class="panel panel2">
+        <p>Años – tiene sesenta años</p>
+        <p>Bill Nye</p>
+        <p>
+          Bi ll Nye esta un profesor de ciencias. Tiene un programa de
+          televisión para enseñar las ciencias por los niños. Cuando yo soy un
+          niño miro su programa en la escuela con mis amigos. Me gusta mirar su
+          programa porque es muy cómico y interesante. Él estudio ingeniería
+          mecánica en la universidad. Estudio el trabajo de Einstein y otros
+          científicos famosos. Te gusta vestir los trajes y la corbata de moño.
+          En el programa de televisión viste un bata blanca y gafas de
+          seguridad. ¿Su pregunta es “Quién es el mejor jugador de baloncesto en
+          el mundo?”
+        </p>
+      </div>
+      <div class="panel panel3">
+        <p>Años – Tiene noventa y tres años</p>
+        <p>Reina Elizabeth</p>
+        <p>
+          Yo soy la reina del Reino Unido. Yo gobernó el Reino Unido para
+          sesenta y seis años. Estoy cansado con un príncipe, Príncipe Philip.
+          Tengo cuatro niños. Vivo en un castillo y tengo ocho residencias. En
+          mi tiempo libre me gusta cazar faisán y jugar con mis perros. En las
+          noches, tengo fiestas y cenas elegantes por los presidentes y los
+          lideres mundial. Yo soy muy viejo. En la mañana, me gusta descansar en
+          mi cama para leer el periódico. En las tardes, me gusta tomar té y
+          comer galletas. ¿Mi pregunta es “Quien es el siguiente rey?”
+        </p>
+      </div>
+
+      <div class="panel panel5">
+        <p>Años- Tienen cincuenta y nueve años</p>
+        <p>Los Escarabajos (The Beatles)</p>
+        <p>
+          Los Escarabajos tienen cuatro socios. Llaman John Lennon, Paul
+          McCartney, George Harrison y Ringo Starr. Lennon y Harrison son
+          muerto, pero McCartney y Starr son vivo. Ellos son británicos y están
+          la mejor banda de todos los tiempos. Lennon y McCartney tocan la
+          guitar y cantar. Starr toca la batería y cantar. Harrison toca la
+          guitar y el piano. Viajan todo el mudo para tocan música para los
+          fanáticos. ¿Su pregunta es “Que es música?”
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // The class open on panels is suposed to be added when clicked
+      const panels = document.querySelectorAll(".panel");
+
+      // This function is to toogle the class open
+      function toggleOpen() {
+        this.classList.toggle("open");
+      }
+
+      //This function is to bring the first and last paragraphs
+      function toggleActive(e) {
+        // console.log(e.propertyName);
+        this.classList.toggle("open-active");
+        if (e.propertyName.includes("flex")) {
+          this.classList.toggle("open-active");
+        }
+      }
+
+      // Then loop through all penels and listen to the click event
+      panels.forEach(panel => panel.addEventListener("click", toggleOpen));
+      panels.forEach(panel =>
+        panel.addEventListener("transitionend", toggleActive)
+      );
+    </script>
+  </body>
+</html>
